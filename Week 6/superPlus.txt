@@ -1,0 +1,12 @@
+First Last Dept DayOff  TimeIn
+Peter Parker AV 31052018 23:07
+Adrianna Tomaz NA  31052018 12:43
+Bruce Wayne NA 27102018 09:00
+Diana Prince NA 31052018 1:30
+Luke Cage AV 27102018 22:15
+Natasha Romanova AV 27102018 17:17
+Thor Odinson AV  31052018 02:45
+Bruce Banner AV 27102018 03:30
+Jeanne-Marie Beaubier NA 27102018 5:55
+Naruto Uzumaki NA  31052018 7:02
+Crystallia Amaquelin NA 27102018 18:07

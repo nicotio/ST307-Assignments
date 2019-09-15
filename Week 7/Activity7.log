@@ -1,0 +1,1638 @@
+NOTE: Copyright (c) 2002-2012 by SAS Institute Inc., Cary, NC, USA.
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M4)
+      Licensed to NORTH CAROLINA STATE UNIVERSITY-SFA-T&R, Site 70085778.
+NOTE: This session is executing on the X64_10HOME  platform.
+
+
+
+NOTE: Updated analytical products:
+
+      SAS/STAT 14.2
+      SAS/ETS 14.2
+      SAS/OR 14.2
+      SAS/IML 14.2
+      SAS/QC 14.2
+
+NOTE: Additional host information:
+
+ X64_10HOME WIN 10.0.16299  Workstation
+
+NOTE: SAS initialization used:
+      real time           2.43 seconds
+      cpu time            1.64 seconds
+
+1
+2    LIBNAME ST307 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref ST307 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+3
+4    *2. Read in the FastFood.csv file with a single DATA step ;
+5
+6    DATA Week7.FastFood;
+7        INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+8        LENGTH Type $ 9. Brand $ 11.;
+9        INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+10       FORMAT Price dollar5.;
+11   RUN;
+
+ERROR: Libref WEEK7 is not assigned.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: DATA statement used (Total process time):
+      real time           0.63 seconds
+      cpu time            0.04 seconds
+
+
+12   /*
+13   Nico Tio
+14   ST 307
+15   Activity 7
+16   */
+17
+18
+19   *1. Create a new library called "Week7".;
+20
+21   LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+22
+23   *2. Read in the FastFood.csv file with a single DATA step ;
+24
+25   DATA Week7.FastFood;
+26       INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+27       LENGTH Type $ 9. Brand $ 11.;
+28       INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+29       FORMAT Price dollar5.;
+30   RUN;
+
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 9 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.03 seconds
+
+
+31   DATA Week7.FastFood;
+32       INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+33       LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+34       INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+35       Ratio = SodiumLevel*/1500;
+                            --
+                            388
+                            200
+ERROR 388-185: Expecting an arithmetic operator.
+
+ERROR 200-322: The symbol is not recognized and will be ignored.
+
+36       SUBSTR(M, 1) = "McDonalds";
+37       SUBSTR(B, 1) = "Burger King";
+38       IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+39       ELSE SodiumLevel="Healthy";
+40       Ratio = SodiumLevel*/1500;
+                            --
+                            388
+                            200
+41       FORMAT Price $ dollar5. $ Calories comma5.;
+                                 -
+                                 22
+                                 200
+WARNING: Variable Price has already been defined as numeric.
+ERROR 388-185: Expecting an arithmetic operator.
+
+ERROR 200-322: The symbol is not recognized and will be ignored.
+
+ERROR 22-322: Syntax error, expecting one of the following: a name, -, ;, DEFAULT, _ALL_,
+              _CHARACTER_, _CHAR_, _NUMERIC_.
+
+42   RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      35:13   40:13
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WEEK7.FASTFOOD may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WEEK7.FASTFOOD was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.29 seconds
+      cpu time            0.09 seconds
+
+
+43   /*
+44   Nico Tio
+45   ST 307
+46   Activity 7
+47   */
+48
+49
+50   *1. Create a new library called "Week7".;
+51
+52   LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+53
+54
+55
+56   DATA Week7.FastFood;
+57       INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+58       LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+59       INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+60       Ratio = SodiumLevel*/1500;
+                            --
+                            388
+                            200
+ERROR 388-185: Expecting an arithmetic operator.
+
+ERROR 200-322: The symbol is not recognized and will be ignored.
+
+61       SUBSTR(M, 1) = "McDonalds";
+62       SUBSTR(B, 1) = "Burger King";
+63       IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+64       ELSE SodiumLevel="Healthy";
+65       Ratio = SodiumLevel*/1500;
+                            --
+                            388
+                            200
+ERROR 388-185: Expecting an arithmetic operator.
+
+ERROR 200-322: The symbol is not recognized and will be ignored.
+
+66       FORMAT Price dollar5. Calories comma5.;
+67   RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      60:13   65:13
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WEEK7.FASTFOOD may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WEEK7.FASTFOOD was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+
+
+68   /*
+69   Nico Tio
+70   ST 307
+71   Activity 7
+72   */
+73
+74
+75   *1. Create a new library called "Week7".;
+76
+77   LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+78
+79
+80
+81   DATA Week7.FastFood;
+82       INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+83       LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+84       INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+85       Ratio = SodiumLevel* / 1500;
+                              -
+                              22
+ERROR 22-322: Syntax error, expecting one of the following: a name, a quoted string,
+              a numeric constant, a datetime constant, a missing value, INPUT, PUT.
+
+86       SUBSTR(M, 1) = "McDonalds";
+87       SUBSTR(B, 1) = "Burger King";
+88       IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+89       ELSE SodiumLevel="Healthy";
+90       FORMAT Price dollar5. Calories comma5.;
+91   RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      85:13
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WEEK7.FASTFOOD may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WEEK7.FASTFOOD was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+92   /*
+93   Nico Tio
+94   ST 307
+95   Activity 7
+96   */
+97
+98
+99   *1. Create a new library called "Week7".;
+100
+101  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+102
+103
+104
+105  DATA Week7.FastFood;
+106      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+107      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+108      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+109      Ratio = SodiumLevel / 1500;
+110      SUBSTR(M, 1) = "McDonalds";
+111      SUBSTR(B, 1) = "Burger King";
+112      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+113      ELSE SodiumLevel="Healthy";
+114      FORMAT Price dollar5. Calories comma5.;
+115  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      109:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+
+
+116  /*
+117  Nico Tio
+118  ST 307
+119  Activity 7
+120  */
+121
+122
+123  *1. Create a new library called "Week7".;
+124
+125  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+126
+127
+128
+129  DATA Week7.FastFood;
+130      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+131      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+132      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+133      Ratio = SodiumLevel / 1500;
+134      SUBSTR(M, 1) = "McDonalds";
+135      SUBSTR(B, 1) = "Burger King";
+136      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+137          ELSE SodiumLevel="Healthy";
+138          FORMAT Price dollar5. Calories comma5. Ratio percent.;
+139  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      133:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.01 seconds
+
+
+140  /*
+141  Nico Tio
+142  ST 307
+143  Activity 7
+144  */
+145
+146
+147  *1. Create a new library called "Week7".;
+148
+149  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+150
+151
+152
+153  DATA Week7.FastFood;
+154      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+155      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+156      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.2;
+157      Ratio = SodiumLevel / 1500;
+158      SUBSTR(M, 1) = "McDonalds";
+159      SUBSTR(B, 1) = "Burger King";
+160      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+161          ELSE SodiumLevel="Healthy";
+162          FORMAT Price dollar5. Calories comma5. Ratio percent.;
+163  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      157:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+164  /*
+165  Nico Tio
+166  ST 307
+167  Activity 7
+168  */
+169
+170
+171  *1. Create a new library called "Week7".;
+172
+173  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+174
+175
+176
+177  DATA Week7.FastFood;
+178      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+179      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+180      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar7.;
+181      Ratio = SodiumLevel / 1500;
+182      SUBSTR(M, 1) = "McDonalds";
+183      SUBSTR(B, 1) = "Burger King";
+184      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+185          ELSE SodiumLevel="Healthy";
+186          FORMAT Price dollar5. Calories comma5. Ratio percent.;
+187  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      181:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+188  /*
+189  Nico Tio
+190  ST 307
+191  Activity 7
+192  */
+193
+194
+195  *1. Create a new library called "Week7".;
+196
+197  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+ERROR: Unable to clear or re-assign the library WEEK7 because it is still in use.
+ERROR: Error in the LIBNAME statement.
+198
+199
+200
+201  DATA Week7.FastFood;
+202      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+203      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+204      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+205      Ratio = SodiumLevel / 1500;
+206      SUBSTR(M, 1) = "McDonalds";
+207      SUBSTR(B, 1) = "Burger King";
+208      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+209          ELSE SodiumLevel="Healthy";
+210          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+211  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      205:13
+ERROR: You cannot open WEEK7.FASTFOOD.DATA for output access with member-level control because
+WEEK7.FASTFOOD.DATA is in use by you in resource environment ViewTable Window.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+212  /*
+213  Nico Tio
+214  ST 307
+215  Activity 7
+216  */
+217
+218
+219  *1. Create a new library called "Week7".;
+220
+221  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+222
+223
+224
+225  DATA Week7.FastFood;
+226      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+227      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+228      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+229      Ratio = SodiumLevel / 1500;
+230      SUBSTR(M, 1) = "McDonalds";
+231      SUBSTR(B, 1) = "Burger King";
+232      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+233          ELSE SodiumLevel="Healthy";
+234          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+235  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      229:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+
+
+236  /*
+237  Nico Tio
+238  ST 307
+239  Activity 7
+240  */
+241
+242
+243  *1. Create a new library called "Week7".;
+244
+245  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+ERROR: Unable to clear or re-assign the library WEEK7 because it is still in use.
+ERROR: Error in the LIBNAME statement.
+246
+247
+248
+249  DATA Week7.FastFood;
+250      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+251      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+252      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+253      Ratio = SodiumLevel / 1500;
+254      SUBSTR(Brand,M, 1) = "McDonalds";
+255      SUBSTR(Brand,B, 1) = "Burger King";
+256      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+257          ELSE SodiumLevel="Healthy";
+258          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+259  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      253:13
+NOTE: Variable M is uninitialized.
+NOTE: Variable B is uninitialized.
+ERROR: You cannot open WEEK7.FASTFOOD.DATA for output access with member-level control because
+WEEK7.FASTFOOD.DATA is in use by you in resource environment ViewTable Window.
+NOTE: The SAS System stopped processing this step because of errors.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.00 seconds
+
+
+260  /*
+261  Nico Tio
+262  ST 307
+263  Activity 7
+264  */
+265
+266
+267  *1. Create a new library called "Week7".;
+268
+269  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+270
+271
+272
+273  DATA Week7.FastFood;
+274      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+275      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+276      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+277      Ratio = SodiumLevel / 1500;
+278      SUBSTR(Brand,M, 1) = "McDonalds";
+279      SUBSTR(Brand,B, 1) = "Burger King";
+280      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+281          ELSE SodiumLevel="Healthy";
+282          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+283  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      277:13
+NOTE: Variable M is uninitialized.
+NOTE: Variable B is uninitialized.
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+---
+2         Breakfast,440,220,14,8,245,1250,McDonalds,$6.11 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=440 Cal_Fat=220 Tran_Fat=14 Sat_Fat=8
+Chol=245 Price=$6.11 Ratio=83% M=. B=. _ERROR_=1 _N_=1
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+3         Breakfast,450,180,6,7,245,1260,McDonalds,$5.10 46
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=450 Cal_Fat=180 Tran_Fat=6 Sat_Fat=7
+Chol=245 Price=$5.10 Ratio=84% M=. B=. _ERROR_=1 _N_=2
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+4         Breakfast,730,410,13,14,465,1460,McDonalds,$6.11 48
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=730 Cal_Fat=410 Tran_Fat=13 Sat_Fat=14
+Chol=465 Price=$6.11 Ratio=97% M=. B=. _ERROR_=1 _N_=3
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+5         Breakfast,240,100,5,2,0,680,McDonalds,$6.11 43
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=240 Cal_Fat=100 Tran_Fat=5 Sat_Fat=2
+Chol=0 Price=$6.11 Ratio=45% M=. B=. _ERROR_=1 _N_=4
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+6         Breakfast,1220,540,23,17,480,1900,McDonalds,$8.99 49
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=1,220 Cal_Fat=540 Tran_Fat=23 Sat_Fat=17
+Chol=480 Price=$8.99 Ratio=127% M=. B=. _ERROR_=1 _N_=5
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+7         Breakfast,590,210,19,7,55,660,Burger King,$5.54 47
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=590 Cal_Fat=210 Tran_Fat=19
+Sat_Fat=7 Chol=55 Price=$5.54 Ratio=44% M=. B=. _ERROR_=1 _N_=6
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+8         Breakfast,290,100,12,4,235,850,Burger King,$3.99 48
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=290 Cal_Fat=100 Tran_Fat=12
+Sat_Fat=4 Chol=235 Price=$3.99 Ratio=57% M=. B=. _ERROR_=1 _N_=7
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+9         Breakfast,150,15,4,1,0,260,Burger King,$3.99 44
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=150 Cal_Fat=15 Tran_Fat=4 Sat_Fat=1
+Chol=0 Price=$3.99 Ratio=17% M=. B=. _ERROR_=1 _N_=8
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+10        Breakfast,35,0,0,0,0,0,McDonalds,$2.00 38
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=35 Cal_Fat=0 Tran_Fat=0 Sat_Fat=0
+Chol=0 Price=$2.00 Ratio=0% M=. B=. _ERROR_=1 _N_=9
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+11        Breakfast,140,70,6,1,0,290,McDonalds,$2.00 42
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=140 Cal_Fat=70 Tran_Fat=6 Sat_Fat=1
+Chol=0 Price=$2.00 Ratio=19% M=. B=. _ERROR_=1 _N_=10
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+12        Breakfast,600,160,3,4,20,620,Burger King,$5.10 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=600 Cal_Fat=160 Tran_Fat=3 Sat_Fat=4
+Chol=20 Price=$5.10 Ratio=41% M=. B=. _ERROR_=1 _N_=11
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+13        Breakfast,770,300,5,9,50,930,McDonalds,$5.54 44
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=770 Cal_Fat=300 Tran_Fat=5 Sat_Fat=9
+Chol=50 Price=$5.54 Ratio=62% M=. B=. _ERROR_=1 _N_=12
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+14        Breakfast,410,240,14,8,30,990,McDonalds,$6.00 45
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=410 Cal_Fat=240 Tran_Fat=14 Sat_Fat=8
+Chol=30 Price=$6.00 Ratio=66% M=. B=. _ERROR_=1 _N_=13
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+15        Breakfast,500,290,8,10,250,1080,McDonalds,$5.10 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=500 Cal_Fat=290 Tran_Fat=8 Sat_Fat=10
+Chol=250 Price=$5.10 Ratio=72% M=. B=. _ERROR_=1 _N_=14
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+16        Breakfast,300,140,12,6,175,760,McDonalds,$5.99 46
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=300 Cal_Fat=140 Tran_Fat=12 Sat_Fat=6
+Chol=175 Price=$5.99 Ratio=51% M=. B=. _ERROR_=1 _N_=15
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+17        Breakfast,560,280,5,11,260,1290,McDonalds,$4.70 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=560 Cal_Fat=280 Tran_Fat=5 Sat_Fat=11
+Chol=260 Price=$4.70 Ratio=86% M=. B=. _ERROR_=1 _N_=16
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+18        Breakfast,420,200,9,7,30,990,Burger King,$5.10 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=420 Cal_Fat=200 Tran_Fat=9 Sat_Fat=7
+Chol=30 Price=$5.10 Ratio=66% M=. B=. _ERROR_=1 _N_=17
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+19        Breakfast,370,190,15,9,45,790,McDonalds,$5.10 45
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=370 Cal_Fat=190 Tran_Fat=15 Sat_Fat=9
+Chol=45 Price=$5.10 Ratio=53% M=. B=. _ERROR_=1 _N_=18
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+20        Breakfast,450,240,8,10,260,930,Burger King,$6.11 48
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=450 Cal_Fat=240 Tran_Fat=8
+Sat_Fat=10 Chol=260 Price=$6.11 Ratio=62% M=. B=. _ERROR_=1 _N_=19
+NOTE: Invalid second argument to function SUBSTR at line 278 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 279 column 5.
+WARNING: Limit set by ERRORS= option reached.  Further errors of this type will not be printed.
+21        Breakfast,170,140,5,6,30,310,Burger King,$6.50 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=170 Cal_Fat=140 Tran_Fat=5 Sat_Fat=6
+Chol=30 Price=$6.50 Ratio=21% M=. B=. _ERROR_=1 _N_=20
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.10 seconds
+
+
+284  /*
+285  Nico Tio
+286  ST 307
+287  Activity 7
+288  */
+289
+290
+291  *1. Create a new library called "Week7".;
+292
+293  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+294
+295
+296
+297  DATA Week7.FastFood;
+298      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+299      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+300      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+301      Ratio = SodiumLevel / 1500;
+302      SUBSTR(Brand,M, 1) = Brand;
+303      SUBSTR(Brand,B, 1) = Brand;
+304      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+305          ELSE SodiumLevel="Healthy";
+306          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+307  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      301:13
+NOTE: Variable M is uninitialized.
+NOTE: Variable B is uninitialized.
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+---
+2         Breakfast,440,220,14,8,245,1250,McDonalds,$6.11 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=440 Cal_Fat=220 Tran_Fat=14 Sat_Fat=8
+Chol=245 Price=$6.11 Ratio=83% M=. B=. _ERROR_=1 _N_=1
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+3         Breakfast,450,180,6,7,245,1260,McDonalds,$5.10 46
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=450 Cal_Fat=180 Tran_Fat=6 Sat_Fat=7
+Chol=245 Price=$5.10 Ratio=84% M=. B=. _ERROR_=1 _N_=2
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+4         Breakfast,730,410,13,14,465,1460,McDonalds,$6.11 48
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=730 Cal_Fat=410 Tran_Fat=13 Sat_Fat=14
+Chol=465 Price=$6.11 Ratio=97% M=. B=. _ERROR_=1 _N_=3
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+5         Breakfast,240,100,5,2,0,680,McDonalds,$6.11 43
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=240 Cal_Fat=100 Tran_Fat=5 Sat_Fat=2
+Chol=0 Price=$6.11 Ratio=45% M=. B=. _ERROR_=1 _N_=4
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+6         Breakfast,1220,540,23,17,480,1900,McDonalds,$8.99 49
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=1,220 Cal_Fat=540 Tran_Fat=23 Sat_Fat=17
+Chol=480 Price=$8.99 Ratio=127% M=. B=. _ERROR_=1 _N_=5
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+7         Breakfast,590,210,19,7,55,660,Burger King,$5.54 47
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=590 Cal_Fat=210 Tran_Fat=19
+Sat_Fat=7 Chol=55 Price=$5.54 Ratio=44% M=. B=. _ERROR_=1 _N_=6
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+8         Breakfast,290,100,12,4,235,850,Burger King,$3.99 48
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=290 Cal_Fat=100 Tran_Fat=12
+Sat_Fat=4 Chol=235 Price=$3.99 Ratio=57% M=. B=. _ERROR_=1 _N_=7
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+9         Breakfast,150,15,4,1,0,260,Burger King,$3.99 44
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=150 Cal_Fat=15 Tran_Fat=4 Sat_Fat=1
+Chol=0 Price=$3.99 Ratio=17% M=. B=. _ERROR_=1 _N_=8
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+10        Breakfast,35,0,0,0,0,0,McDonalds,$2.00 38
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=35 Cal_Fat=0 Tran_Fat=0 Sat_Fat=0
+Chol=0 Price=$2.00 Ratio=0% M=. B=. _ERROR_=1 _N_=9
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+11        Breakfast,140,70,6,1,0,290,McDonalds,$2.00 42
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=140 Cal_Fat=70 Tran_Fat=6 Sat_Fat=1
+Chol=0 Price=$2.00 Ratio=19% M=. B=. _ERROR_=1 _N_=10
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+12        Breakfast,600,160,3,4,20,620,Burger King,$5.10 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=600 Cal_Fat=160 Tran_Fat=3 Sat_Fat=4
+Chol=20 Price=$5.10 Ratio=41% M=. B=. _ERROR_=1 _N_=11
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+13        Breakfast,770,300,5,9,50,930,McDonalds,$5.54 44
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=770 Cal_Fat=300 Tran_Fat=5 Sat_Fat=9
+Chol=50 Price=$5.54 Ratio=62% M=. B=. _ERROR_=1 _N_=12
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+14        Breakfast,410,240,14,8,30,990,McDonalds,$6.00 45
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=410 Cal_Fat=240 Tran_Fat=14 Sat_Fat=8
+Chol=30 Price=$6.00 Ratio=66% M=. B=. _ERROR_=1 _N_=13
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+15        Breakfast,500,290,8,10,250,1080,McDonalds,$5.10 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=500 Cal_Fat=290 Tran_Fat=8 Sat_Fat=10
+Chol=250 Price=$5.10 Ratio=72% M=. B=. _ERROR_=1 _N_=14
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+16        Breakfast,300,140,12,6,175,760,McDonalds,$5.99 46
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=300 Cal_Fat=140 Tran_Fat=12 Sat_Fat=6
+Chol=175 Price=$5.99 Ratio=51% M=. B=. _ERROR_=1 _N_=15
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+17        Breakfast,560,280,5,11,260,1290,McDonalds,$4.70 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=560 Cal_Fat=280 Tran_Fat=5 Sat_Fat=11
+Chol=260 Price=$4.70 Ratio=86% M=. B=. _ERROR_=1 _N_=16
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+18        Breakfast,420,200,9,7,30,990,Burger King,$5.10 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=420 Cal_Fat=200 Tran_Fat=9 Sat_Fat=7
+Chol=30 Price=$5.10 Ratio=66% M=. B=. _ERROR_=1 _N_=17
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+19        Breakfast,370,190,15,9,45,790,McDonalds,$5.10 45
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=370 Cal_Fat=190 Tran_Fat=15 Sat_Fat=9
+Chol=45 Price=$5.10 Ratio=53% M=. B=. _ERROR_=1 _N_=18
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+20        Breakfast,450,240,8,10,260,930,Burger King,$6.11 48
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=450 Cal_Fat=240 Tran_Fat=8
+Sat_Fat=10 Chol=260 Price=$6.11 Ratio=62% M=. B=. _ERROR_=1 _N_=19
+NOTE: Invalid second argument to function SUBSTR at line 302 column 5.
+NOTE: Invalid second argument to function SUBSTR at line 303 column 5.
+WARNING: Limit set by ERRORS= option reached.  Further errors of this type will not be printed.
+21        Breakfast,170,140,5,6,30,310,Burger King,$6.50 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=170 Cal_Fat=140 Tran_Fat=5 Sat_Fat=6
+Chol=30 Price=$6.50 Ratio=21% M=. B=. _ERROR_=1 _N_=20
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.09 seconds
+
+
+308  /*
+309  Nico Tio
+310  ST 307
+311  Activity 7
+312  */
+313
+314
+315  *1. Create a new library called "Week7".;
+316
+317  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+318
+319
+320
+321  DATA Week7.FastFood;
+322      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+323      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+324      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+325      Ratio = SodiumLevel / 1500;
+326      SUBSTR("McDonalds",2, 0) = '';
+                -
+                356
+NOTE 356-185: The SUBSTR pseudo-variable function does not allow character constants,
+              expressions, or numeric constants for the first argument.
+
+327      SUBSTR(Brand,B, 1) = Brand;
+328      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+329          ELSE SodiumLevel="Healthy";
+330          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+331  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      325:13
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WEEK7.FASTFOOD may be incomplete.  When this step was stopped there were 0
+         observations and 11 variables.
+WARNING: Data set WEEK7.FASTFOOD was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+
+
+332  /*
+333  Nico Tio
+334  ST 307
+335  Activity 7
+336  */
+337
+338
+339  *1. Create a new library called "Week7".;
+340
+341  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+342
+343
+344
+345  DATA Week7.FastFood;
+346      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+347      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+348      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+349      Ratio = SodiumLevel / 1500;
+350      substr(brand,1, 1);
+                           -
+                           22
+                           76
+ERROR 22-322: Syntax error, expecting one of the following: +, =.
+
+ERROR 76-322: Syntax error, statement will be ignored.
+
+351      SUBSTR(Brand,B, 1) = Brand;
+352      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+353          ELSE SodiumLevel="Healthy";
+354          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+355  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      349:13
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WEEK7.FASTFOOD may be incomplete.  When this step was stopped there were 0
+         observations and 11 variables.
+WARNING: Data set WEEK7.FASTFOOD was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+356  /*
+357  Nico Tio
+358  ST 307
+359  Activity 7
+360  */
+361
+362
+363  *1. Create a new library called "Week7".;
+364
+365  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+366
+367
+368
+369  DATA Week7.FastFood;
+370      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+371      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+372      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+373      Ratio = SodiumLevel / 1500;
+374      M = SUBSTR(brand,1, 1);
+375      SUBSTR(Brand,B, 1) = Brand;
+376      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+377          ELSE SodiumLevel="Healthy";
+378          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+379  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      373:13
+NOTE: Variable B is uninitialized.
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+---
+2         Breakfast,440,220,14,8,245,1250,McDonalds,$6.11 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=440 Cal_Fat=220 Tran_Fat=14 Sat_Fat=8
+Chol=245 Price=$6.11 Ratio=83% M=M B=. _ERROR_=1 _N_=1
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+3         Breakfast,450,180,6,7,245,1260,McDonalds,$5.10 46
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=450 Cal_Fat=180 Tran_Fat=6 Sat_Fat=7
+Chol=245 Price=$5.10 Ratio=84% M=M B=. _ERROR_=1 _N_=2
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+RULE:     ----+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+---
+4         Breakfast,730,410,13,14,465,1460,McDonalds,$6.11 48
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=730 Cal_Fat=410 Tran_Fat=13 Sat_Fat=14
+Chol=465 Price=$6.11 Ratio=97% M=M B=. _ERROR_=1 _N_=3
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+5         Breakfast,240,100,5,2,0,680,McDonalds,$6.11 43
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=240 Cal_Fat=100 Tran_Fat=5 Sat_Fat=2
+Chol=0 Price=$6.11 Ratio=45% M=M B=. _ERROR_=1 _N_=4
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+6         Breakfast,1220,540,23,17,480,1900,McDonalds,$8.99 49
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=1,220 Cal_Fat=540 Tran_Fat=23 Sat_Fat=17
+Chol=480 Price=$8.99 Ratio=127% M=M B=. _ERROR_=1 _N_=5
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+7         Breakfast,590,210,19,7,55,660,Burger King,$5.54 47
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=590 Cal_Fat=210 Tran_Fat=19
+Sat_Fat=7 Chol=55 Price=$5.54 Ratio=44% M=B B=. _ERROR_=1 _N_=6
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+8         Breakfast,290,100,12,4,235,850,Burger King,$3.99 48
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=290 Cal_Fat=100 Tran_Fat=12
+Sat_Fat=4 Chol=235 Price=$3.99 Ratio=57% M=B B=. _ERROR_=1 _N_=7
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+9         Breakfast,150,15,4,1,0,260,Burger King,$3.99 44
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=150 Cal_Fat=15 Tran_Fat=4 Sat_Fat=1
+Chol=0 Price=$3.99 Ratio=17% M=B B=. _ERROR_=1 _N_=8
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+10        Breakfast,35,0,0,0,0,0,McDonalds,$2.00 38
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=35 Cal_Fat=0 Tran_Fat=0 Sat_Fat=0
+Chol=0 Price=$2.00 Ratio=0% M=M B=. _ERROR_=1 _N_=9
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+11        Breakfast,140,70,6,1,0,290,McDonalds,$2.00 42
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=140 Cal_Fat=70 Tran_Fat=6 Sat_Fat=1
+Chol=0 Price=$2.00 Ratio=19% M=M B=. _ERROR_=1 _N_=10
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+12        Breakfast,600,160,3,4,20,620,Burger King,$5.10 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=600 Cal_Fat=160 Tran_Fat=3 Sat_Fat=4
+Chol=20 Price=$5.10 Ratio=41% M=B B=. _ERROR_=1 _N_=11
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+13        Breakfast,770,300,5,9,50,930,McDonalds,$5.54 44
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=770 Cal_Fat=300 Tran_Fat=5 Sat_Fat=9
+Chol=50 Price=$5.54 Ratio=62% M=M B=. _ERROR_=1 _N_=12
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+14        Breakfast,410,240,14,8,30,990,McDonalds,$6.00 45
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=410 Cal_Fat=240 Tran_Fat=14 Sat_Fat=8
+Chol=30 Price=$6.00 Ratio=66% M=M B=. _ERROR_=1 _N_=13
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+15        Breakfast,500,290,8,10,250,1080,McDonalds,$5.10 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=500 Cal_Fat=290 Tran_Fat=8 Sat_Fat=10
+Chol=250 Price=$5.10 Ratio=72% M=M B=. _ERROR_=1 _N_=14
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+16        Breakfast,300,140,12,6,175,760,McDonalds,$5.99 46
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=300 Cal_Fat=140 Tran_Fat=12 Sat_Fat=6
+Chol=175 Price=$5.99 Ratio=51% M=M B=. _ERROR_=1 _N_=15
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+17        Breakfast,560,280,5,11,260,1290,McDonalds,$4.70 47
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=560 Cal_Fat=280 Tran_Fat=5 Sat_Fat=11
+Chol=260 Price=$4.70 Ratio=86% M=M B=. _ERROR_=1 _N_=16
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+18        Breakfast,420,200,9,7,30,990,Burger King,$5.10 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=420 Cal_Fat=200 Tran_Fat=9 Sat_Fat=7
+Chol=30 Price=$5.10 Ratio=66% M=B B=. _ERROR_=1 _N_=17
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+19        Breakfast,370,190,15,9,45,790,McDonalds,$5.10 45
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=370 Cal_Fat=190 Tran_Fat=15 Sat_Fat=9
+Chol=45 Price=$5.10 Ratio=53% M=M B=. _ERROR_=1 _N_=18
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+20        Breakfast,450,240,8,10,260,930,Burger King,$6.11 48
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=450 Cal_Fat=240 Tran_Fat=8
+Sat_Fat=10 Chol=260 Price=$6.11 Ratio=62% M=B B=. _ERROR_=1 _N_=19
+NOTE: Invalid second argument to function SUBSTR at line 375 column 5.
+WARNING: Limit set by ERRORS= option reached.  Further errors of this type will not be printed.
+21        Breakfast,170,140,5,6,30,310,Burger King,$6.50 46
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=170 Cal_Fat=140 Tran_Fat=5 Sat_Fat=6
+Chol=30 Price=$6.50 Ratio=21% M=B B=. _ERROR_=1 _N_=20
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.06 seconds
+
+
+380
+381  DATA McDolands;
+382      SET Week7.FastFood;
+383      LENGTH Price_Dollar $ 14;
+384      FORMAT Price_Dollar $ dollar14.;
+                               ---------
+                               48
+ERROR 48-59: The format $DOLLAR was not found or could not be loaded.
+
+385      WHERE Brand in ("McDonalds");
+386      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+387      KEEP SodiumLevel Price_Dollar;
+388  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 2 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.03 seconds
+
+
+389  /*
+390  Nico Tio
+391  ST 307
+392  Activity 7
+393  */
+394
+395
+396  *1. Create a new library called "Week7".;
+397
+398  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+399
+400
+401
+402  DATA Week7.FastFood;
+403      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+404      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+405      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+406      Ratio = SodiumLevel / 1500;
+407      M = SUBSTR(brand,1, 1);
+408      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+409          ELSE SodiumLevel="Healthy";
+410          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+411  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      406:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+
+
+412
+413
+414  *3);
+415
+416  DATA McDolands;
+417      SET Week7.FastFood;
+418      LENGTH Price_Dollar $ 14;
+419      FORMAT Price_Dollar $ dollar14.;
+                               ---------
+                               48
+ERROR 48-59: The format $DOLLAR was not found or could not be loaded.
+
+420      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+421      KEEP SodiumLevel Price_Dollar;
+422  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 2 variables.
+WARNING: Data set WORK.MCDOLANDS was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+
+
+423  /*
+424  Nico Tio
+425  ST 307
+426  Activity 7
+427  */
+428
+429
+430  *1. Create a new library called "Week7".;
+431
+432  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+433
+434
+435
+436  DATA Week7.FastFood;
+437      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+438      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+439      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+440      Ratio = SodiumLevel / 1500;
+441      M = SUBSTR(brand,1, 1);
+442      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+443          ELSE SodiumLevel="Healthy";
+444          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+445  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      440:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.01 seconds
+
+
+446
+447
+448  *3);
+449
+450  DATA McDolands;
+451      SET Week7.FastFood;
+452      LENGTH Price_Dollar $ 14;
+453      FORMAT Price_Dollar $ dollar14.;
+                               ---------
+                               48
+ERROR 48-59: The format $DOLLAR was not found or could not be loaded.
+
+454      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+455  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WORK.MCDOLANDS was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+456  /*
+457  Nico Tio
+458  ST 307
+459  Activity 7
+460  */
+461
+462
+463  *1. Create a new library called "Week7".;
+464
+465  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+466
+467
+468
+469  DATA Week7.FastFood;
+470      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+471      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+472      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+473      Ratio = SodiumLevel / 1500;
+474      M = SUBSTR(brand,1, 1);
+475      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+476          ELSE SodiumLevel="Healthy";
+477          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+478  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      473:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+479
+480
+481  *3);
+482
+483  DATA McDolands;
+484      SET Week7.FastFood;
+485      LENGTH Price_Dollar $ 14;
+486      FORMAT Price_Dollar $ dollar4.;
+                               --------
+                               48
+ERROR 48-59: The format $DOLLAR was not found or could not be loaded.
+
+487      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+488  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WORK.MCDOLANDS was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+489  /*
+490  Nico Tio
+491  ST 307
+492  Activity 7
+493  */
+494
+495
+496  *1. Create a new library called "Week7".;
+497
+498  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+499
+500
+501
+502  DATA Week7.FastFood;
+503      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+504      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+505      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+506      Ratio = SodiumLevel / 1500;
+507      M = SUBSTR(brand,1, 1);
+508      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+509          ELSE SodiumLevel="Healthy";
+510          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+511  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      506:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+512
+513
+514  *3);
+515
+516  DATA McDolands;
+517      SET Week7.FastFood;
+518      LENGTH Price_Dollar $ 14;
+519      FORMAT Price_Dollar $ dollar4.;
+                               --------
+                               48
+ERROR 48-59: The format $DOLLAR was not found or could not be loaded.
+
+520      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+521      ELSE;
+522  RUN;
+
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WORK.MCDOLANDS was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+523  /*
+524  Nico Tio
+525  ST 307
+526  Activity 7
+527  */
+528
+529
+530  *1. Create a new library called "Week7".;
+531
+532  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+533
+534
+535
+536  DATA Week7.FastFood;
+537      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+538      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+539      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+540      Ratio = SodiumLevel / 1500;
+541      M = SUBSTR(brand,1, 1);
+542      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+543          ELSE SodiumLevel="Healthy";
+544          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+545  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      540:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+
+
+546
+547
+548  *3);
+549
+550  DATA McDolands;
+551      SET Week7.FastFood;
+552      LENGTH Price_Dollar dollar14.;
+                             ---------
+                             391
+                             201
+1    1
+     -
+     352
+ERROR 391-185: Expecting a variable length specification.
+
+ERROR 201-322: The option is not recognized and will be ignored.
+
+ERROR 352-185: The length of numeric variables is 3-8.
+
+553      FORMAT Price_Dollar dollar14.;
+554      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+555      ELSE;
+556  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      554:25   554:54
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WORK.MCDOLANDS was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+
+
+557  DATA McDolands;
+558      SET Week7.FastFood;
+559      LENGTH Price_Dollar dollar14.;
+                             ---------
+                             391
+                             201
+1    1
+     -
+     352
+ERROR 391-185: Expecting a variable length specification.
+
+ERROR 201-322: The option is not recognized and will be ignored.
+
+ERROR 352-185: The length of numeric variables is 3-8.
+
+560      FORMAT Price_Dollar dollar14.;
+561      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+562      ELSE;
+563  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      561:25   561:54
+NOTE: The SAS System stopped processing this step because of errors.
+WARNING: The data set WORK.MCDOLANDS may be incomplete.  When this step was stopped there were 0
+         observations and 12 variables.
+WARNING: Data set WORK.MCDOLANDS was not replaced because this step was stopped.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+
+
+564  /*
+565  Nico Tio
+566  ST 307
+567  Activity 7
+568  */
+569
+570
+571  *1. Create a new library called "Week7".;
+572
+573  LIBNAME Week7 "C:\Users\nicot\Desktop\Week7";
+NOTE: Libref WEEK7 refers to the same physical library as ST307.
+NOTE: Libref WEEK7 was successfully assigned as follows:
+      Engine:        V9
+      Physical Name: C:\Users\nicot\Desktop\Week7
+574
+575
+576
+577  DATA Week7.FastFood;
+578      INFILE "C:\Users\nicot\Desktop\Week7\FastFood.csv" FIRSTOBS=2 DELIMITER = ",";
+579      LENGTH Type $ 9. Brand $ 11. SodiumLevel $ 13;
+580      INPUT Type $ Calories Cal_Fat Tran_Fat Sat_Fat Chol SodiumLevel Brand Price : dollar5.;
+581      Ratio = SodiumLevel / 1500;
+582      M = SUBSTR(brand,1, 1);
+583      IF Ratio > 0.8 THEN SodiumLevel= "Salty" ;
+584          ELSE SodiumLevel="Healthy";
+585          FORMAT Price dollar7.2 Calories comma5. Ratio percent. ;
+586  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      581:13
+NOTE: The infile "C:\Users\nicot\Desktop\Week7\FastFood.csv" is:
+      Filename=C:\Users\nicot\Desktop\Week7\FastFood.csv,
+      RECFM=V,LRECL=32767,File Size (bytes)=4677,
+      Last Modified=28Feb2018:17:58:43,
+      Create Time=28Feb2018:18:01:05
+
+NOTE: 104 records were read from the infile "C:\Users\nicot\Desktop\Week7\FastFood.csv".
+      The minimum record length was 34.
+      The maximum record length was 49.
+NOTE: The data set WEEK7.FASTFOOD has 104 observations and 11 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+
+
+587
+588
+589  *3);
+590
+591  DATA McDolands;
+592      SET Week7.FastFood;
+593      FORMAT Price_Dollar dollar14.;
+594      IF (Price_Dollar GE "Price") THEN Price_Dollar = "Smallest";
+595      ELSE;
+596  RUN;
+
+NOTE: Character values have been converted to numeric values at the places given by:
+      (Line):(Column).
+      594:25   594:54
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=440 Cal_Fat=220 Tran_Fat=14 Sat_Fat=8
+Chol=245 Price=$6.11 Ratio=83% M=M Price_Dollar=. _ERROR_=1 _N_=1
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=450 Cal_Fat=180 Tran_Fat=6 Sat_Fat=7
+Chol=245 Price=$5.10 Ratio=84% M=M Price_Dollar=. _ERROR_=1 _N_=2
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=730 Cal_Fat=410 Tran_Fat=13 Sat_Fat=14
+Chol=465 Price=$6.11 Ratio=97% M=M Price_Dollar=. _ERROR_=1 _N_=3
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=240 Cal_Fat=100 Tran_Fat=5 Sat_Fat=2
+Chol=0 Price=$6.11 Ratio=45% M=M Price_Dollar=. _ERROR_=1 _N_=4
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=1,220 Cal_Fat=540 Tran_Fat=23 Sat_Fat=17
+Chol=480 Price=$8.99 Ratio=127% M=M Price_Dollar=. _ERROR_=1 _N_=5
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=590 Cal_Fat=210 Tran_Fat=19
+Sat_Fat=7 Chol=55 Price=$5.54 Ratio=44% M=B Price_Dollar=. _ERROR_=1 _N_=6
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=290 Cal_Fat=100 Tran_Fat=12
+Sat_Fat=4 Chol=235 Price=$3.99 Ratio=57% M=B Price_Dollar=. _ERROR_=1 _N_=7
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=150 Cal_Fat=15 Tran_Fat=4 Sat_Fat=1
+Chol=0 Price=$3.99 Ratio=17% M=B Price_Dollar=. _ERROR_=1 _N_=8
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=35 Cal_Fat=0 Tran_Fat=0 Sat_Fat=0
+Chol=0 Price=$2.00 Ratio=0% M=M Price_Dollar=. _ERROR_=1 _N_=9
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=140 Cal_Fat=70 Tran_Fat=6 Sat_Fat=1
+Chol=0 Price=$2.00 Ratio=19% M=M Price_Dollar=. _ERROR_=1 _N_=10
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=600 Cal_Fat=160 Tran_Fat=3 Sat_Fat=4
+Chol=20 Price=$5.10 Ratio=41% M=B Price_Dollar=. _ERROR_=1 _N_=11
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=770 Cal_Fat=300 Tran_Fat=5 Sat_Fat=9
+Chol=50 Price=$5.54 Ratio=62% M=M Price_Dollar=. _ERROR_=1 _N_=12
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=410 Cal_Fat=240 Tran_Fat=14 Sat_Fat=8
+Chol=30 Price=$6.00 Ratio=66% M=M Price_Dollar=. _ERROR_=1 _N_=13
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=500 Cal_Fat=290 Tran_Fat=8 Sat_Fat=10
+Chol=250 Price=$5.10 Ratio=72% M=M Price_Dollar=. _ERROR_=1 _N_=14
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=300 Cal_Fat=140 Tran_Fat=12 Sat_Fat=6
+Chol=175 Price=$5.99 Ratio=51% M=M Price_Dollar=. _ERROR_=1 _N_=15
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Salty Calories=560 Cal_Fat=280 Tran_Fat=5 Sat_Fat=11
+Chol=260 Price=$4.70 Ratio=86% M=M Price_Dollar=. _ERROR_=1 _N_=16
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=420 Cal_Fat=200 Tran_Fat=9 Sat_Fat=7
+Chol=30 Price=$5.10 Ratio=66% M=B Price_Dollar=. _ERROR_=1 _N_=17
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=McDonalds SodiumLevel=Healthy Calories=370 Cal_Fat=190 Tran_Fat=15 Sat_Fat=9
+Chol=45 Price=$5.10 Ratio=53% M=M Price_Dollar=. _ERROR_=1 _N_=18
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=450 Cal_Fat=240 Tran_Fat=8
+Sat_Fat=10 Chol=260 Price=$6.11 Ratio=62% M=B Price_Dollar=. _ERROR_=1 _N_=19
+NOTE: Invalid numeric data, 'Price' , at line 594 column 25.
+NOTE: Invalid numeric data, 'Smallest' , at line 594 column 54.
+WARNING: Limit set by ERRORS= option reached.  Further errors of this type will not be printed.
+Type=Breakfast Brand=Burger King SodiumLevel=Healthy Calories=170 Cal_Fat=140 Tran_Fat=5 Sat_Fat=6
+Chol=30 Price=$6.50 Ratio=21% M=B Price_Dollar=. _ERROR_=1 _N_=20
+NOTE: There were 104 observations read from the data set WEEK7.FASTFOOD.
+NOTE: The data set WORK.MCDOLANDS has 104 observations and 12 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.06 seconds
+
+

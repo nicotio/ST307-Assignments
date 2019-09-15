@@ -1,0 +1,29 @@
+ST 307
+
+week4
+
+student sex Exam Score gpa level
+
+
+1_M_1_80_3.5_junior
+1_M_2_84_3.5_junior
+2_M_1_85_3.7_junior
+2_M_2_89_3.7_junior
+3_F_1_90_3.8_senior
+3_F_2_86_3.8_senior
+
+4_F_1_68_2.2_junior
+
+4_F_2_72_2.2_junior
+5_M_1_82_3.4_senior
+
+5_M_2_85_3.4_senior
+6_F_1_94_3.9_senior
+
+6_F_2_94_3.9_senior
+7_F_1_78_3.3_senior
+
+7_F_2_83_3.3_senior
+8_M_1_72_2.7_junior
+
+8_M_2_78_2.7_junior

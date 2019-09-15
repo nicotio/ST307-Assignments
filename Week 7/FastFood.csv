@@ -1,0 +1,105 @@
+Type, Calories ,Cal_Fat,Tran_Fat,Sat_Fat,Chol,Sodium,Brand,Price
+Breakfast,440,220,14,8,245,1250,McDonalds,$6.11
+Breakfast,450,180,6,7,245,1260,McDonalds,$5.10
+Breakfast,730,410,13,14,465,1460,McDonalds,$6.11
+Breakfast,240,100,5,2,0,680,McDonalds,$6.11
+Breakfast,1220,540,23,17,480,1900,McDonalds,$8.99
+Breakfast,590,210,19,7,55,660,Burger King,$5.54
+Breakfast,290,100,12,4,235,850,Burger King,$3.99
+Breakfast,150,15,4,1,0,260,Burger King,$3.99
+Breakfast,35,0,0,0,0,0,McDonalds,$2.00
+Breakfast,140,70,6,1,0,290,McDonalds,$2.00
+Breakfast,600,160,3,4,20,620,Burger King,$5.10
+Breakfast,770,300,5,9,50,930,McDonalds,$5.54
+Breakfast,410,240,14,8,30,990,McDonalds,$6.00
+Breakfast,500,290,8,10,250,1080,McDonalds,$5.10
+Breakfast,300,140,12,6,175,760,McDonalds,$5.99
+Breakfast,560,280,5,11,260,1290,McDonalds,$4.70
+Breakfast,420,200,9,7,30,990,Burger King,$5.10
+Breakfast,370,190,15,9,45,790,McDonalds,$5.10
+Breakfast,450,240,8,10,260,930,Burger King,$6.11
+Breakfast,170,140,5,6,30,310,Burger King,$6.50
+Breakfast,180,100,9,4,435,180,Burger King,$5.10
+Breakfast,35,0,0,0,0,0,McDonalds,$2.00
+Breakfast,420,160,9,4,60,400,McDonalds,$7.99
+Chicken,420,220,8,5,60,1120,Burger King,$5.60
+Chicken,840,440,10,11,125,2240,McDonalds,$9.99
+Chicken,170,90,4,2,25,450,McDonalds,$5.00
+Chicken,250,130,6,3,35,670,Burger King,$5.54
+Chicken,1270,590,9,12,180,3100,McDonalds,$9.99
+Chicken,380,180,5,3,55,930,Burger King,$6.00
+Chicken,630,300,4,6,90,1550,McDonalds,$7.22
+Sauce,45,0,0,0,0,260,McDonalds,$0.99
+Sauce,70,0,0,0,0,260,McDonalds,$0.99
+Sauce,200,190,5,3,10,300,Burger King,$1.25
+Sauce,50,0,0,0,0,0,McDonalds,$0.99
+Sauce,50,15,2,0,0,260,Burger King,$0.99
+Sauce,60,60,5,1,0,910,McDonalds,$0.99
+Sauce,50,0,0,0,0,160,McDonalds,$0.99
+Sauce,70,20,3,0,0,160,Burger King,$0.99
+Sauce,10,0,0,0,0,100,McDonalds,$0.99
+Dessert,35,0,0,0,0,0,McDonalds,$3.00
+Dessert,100,5,0,0,5,35,Burger King,$2.55
+Dessert,250,100,8,3,0,150,McDonalds,$3.50
+Dessert,160,60,10,2,10,95,McDonalds,$3.00
+Dessert,440,90,5,6,40,190,McDonalds,$4.99
+Dessert,580,120,4,8,50,250,McDonalds,$5.20
+Dessert,770,160,5,11,70,330,McDonalds,$5.66
+Dessert,1160,240,10,16,100,510,Burger King,$7.89
+Dessert,160,20,5,1,5,85,Burger King,$3.55
+Dessert,130,15,3,1,5,55,McDonalds,$2.89
+Dessert,340,70,5,4,30,140,McDonalds,$2.55
+Dessert,330,80,4,6,25,170,McDonalds,$3.50
+Dessert,45,10,2,0,5,20,McDonalds,$3.00
+Dessert,70,5,2,0,5,35,McDonalds,$2.55
+Dessert,270,100,12,6,35,170,Burger King,$3.50
+Dessert,250,70,7,2,0,270,McDonalds,$3.00
+Dessert,620,180,20,12,55,190,McDonalds,$3.55
+Dessert,560,150,12,9,50,250,McDonalds,$2.89
+Dessert,140,45,5,1,10,125,Burger King,$2.89
+Dessert,45,30,2,0,0,0,McDonalds,$3.55
+Dessert,280,50,10,3,25,85,McDonalds,$2.89
+Dessert,420,90,16,6,40,130,McDonalds,$2.55
+Dessert,560,120,19,8,50,170,McDonalds,$3.50
+Dessert,740,160,15,11,70,230,Burger King,$3.00
+Dessert,1110,240,14,16,100,350,McDonalds,$8.15
+Dessert,150,50,2,1,5,115,Burger King,$3.50
+Dessert,150,35,6,2,15,60,McDonalds,$3.00
+Dessert,420,90,13,6,40,140,McDonalds,$3.55
+Dessert,550,120,19,8,50,190,Burger King,$2.89
+Dessert,740,160,9,11,70,250,McDonalds,$2.89
+Dessert,1110,240,12,16,100,370,McDonalds,$7.85
+Fries,520,220,20,5,0,330,McDonalds,$2.55
+Fries,350,150,17,3,0,220,Burger King,$1.99
+Fries,0,0,0,0,0,270,McDonalds,$1.55
+Fries,230,100,9,2,0,140,McDonalds,$2.21
+Salad,130,60,5,3,25,290,Burger King,$4.55
+Salad,350,150,10,5,65,1030,McDonalds,$5.21
+Salad,250,80,9,4,85,950,McDonalds,$3.99
+Salad,60,10,2,0,0,160,McDonalds,$3.87
+Salad,90,35,1,2,10,180,McDonalds,$2.99
+Salad,310,120,5,4,50,910,Burger King,$4.55
+Salad,210,60,8,3,70,830,McDonalds,$5.67
+Salad,150,80,6,4,85,410,Burger King,$3.45
+Salad,370,170,21,6,125,1150,McDonalds,$5.45
+Salad,270,100,9,5,145,1060,McDonalds,$4.21
+Salad,310,120,1,2,5,85,McDonalds,$5.55
+Salad,120,80,2,1,10,440,McDonalds,$3.99
+Salad,190,170,5,3,20,500,Burger King,$3.57
+Salad,40,25,0,0,0,730,Burger King,$2.99
+Salad,170,130,10,2,20,530,McDonalds,$3.55
+Salad,15,0,0,0,0,10,McDonalds,$2.00
+Sandwich,560,270,9,10,80,1010,McDonalds,$4.99
+Sandwich,520,260,22,9,80,730,McDonalds,$5.61
+Sandwich,570,290,25,11,90,960,McDonalds,$6.45
+Sandwich,310,110,4,6,40,740,McDonalds,$3.89
+Sandwich,400,140,9,3,70,1010,Burger King,$4.55
+Sandwich,500,210,17,4,50,1090,Burger King,$7.21
+Sandwich,460,210,10,11,80,1140,McDonalds,$5.65
+Sandwich,730,360,18,19,160,1330,McDonalds,$7.21
+Sandwich,400,160,9,4,40,640,McDonalds,$5.43
+Sandwich,260,80,8,3,30,530,Burger King,$3.55
+Sandwich,440,210,5,4,45,920,McDonalds,$5.43
+Sandwich,420,200,3,4,45,760,McDonalds,$6.24
+Sandwich,420,160,9,7,70,730,Burger King,$6.12
+Sandwich,510,220,22,12,95,1150,McDonalds,$5.89
